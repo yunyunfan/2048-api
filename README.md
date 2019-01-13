@@ -1,5 +1,8 @@
-# 2048-api
-A 2048 game api for training supervised learning (imitation learning) or reinforcement learning agents
+# 2048 homework
+# How to run
+* 运行evaluate(50次): 
+*     需先修改[`agents.py`](game2048/agents.py) 里面load 的网络(mymodel2.pth)路径
+* python evaluate.py
 
 # Code structure
 * [`game2048/`](game2048/): the main package.
@@ -11,27 +14,10 @@ A 2048 game api for training supervised learning (imitation learning) or reinfor
 * [`static/`](static/): frontend assets (based on Vue.js) for web app.
 * [`webapp.py`](webapp.py): run the web app (backend) demo.
 * [`evaluate.py`](evaluate.py): evaluate your self-defined agent.
-
-# Requirements
-* code only tested on linux system (ubuntu 16.04)
-* Python 3 (Anaconda 3.6.3 specifically) with numpy and flask
-
-# To define your own agents
-```python
-from game2048.agents import Agent
-
-class YourOwnAgent(Agent):
-
-    def step(self):
-        '''To define the agent's 1-step behavior given the `game`.
-        You can find more instance in [`agents.py`](game2048/agents.py).
-        
-        :return direction: 0: left, 1: down, 2: right, 3: up
-        '''
-        direction = some_function(self.game)
-        return direction
-
-```
+* [`Net.py`](net.py): cnn model.
+* [`train.py`](train.py): start use the tranning and test data to train model.
+* [`training_data.py`](evaluate.py): use ExpectiMax agent to play and save the board and the correspongding direction
+* [`dataloader.py`](evaluate.py): load tranning and test data.
 
 # To compile the pre-defined ExpectiMax agent
 
@@ -40,15 +26,3 @@ cd game2048/expectimax
 bash configure
 make
 ```
-
-# To run the web app
-```bash
-python webapp.py
-```
-![demo](preview2048.gif)
-
-# LICENSE
-The code is under Apache-2.0 License.
-
-# For EE369 students from SJTU only
-Please read [here](EE369.md).
